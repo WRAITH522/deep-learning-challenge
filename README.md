@@ -91,23 +91,44 @@ Use any or all of the following methods to optimize your model:
 # Step 4: Write a Report on the Neural Network Model
 For this part of the assignment, you’ll write a report on the performance of the deep learning model you created for Alphabet Soup.
 
-The report should contain the following:
+1. **Overview of the analysis**: 
+The goal of this project is to create an algorithm using machine learning and neural networks to predict whether applicants will be successful if funded by the fictional non-profit foundation, Alphabet Soup.
 
-1. **Overview** of the analysis: Explain the purpose of this analysis.
-
-2. **Results**: Using bulleted lists and images to support your answers, address the following questions:
-
+2. **Results**:
 - Data Preprocessing
 
-    - What variable(s) are the target(s) for your model?
-    - What variable(s) are the features for your model?
-    - What variable(s) should be removed from the input data because they are neither targets nor features?
+    - What variable(s) are the target(s) for your model? **ANSWER** - The variable for the Target was identified as the column `IS_SUCCESSFUL`.
+    - What variable(s) are the features for your model? **ANSWER** - The following columns were considered as features for the model:
+        - `NAME`
+        - `APPLICATION_TYPE`
+        - `AFFILIATION`
+        - `CLASSIFICATION`
+        - `USE_CASE`
+        - `ORGANIZATION`
+        - `STATUS`
+        - `INCOME_AMT`
+        - `SPECIAL_CONSIDERATIONS`
+        - `ASK_AMT`
+    - What variable(s) should be removed from the input data because they are neither targets nor features? **ANSWER** - The column or variable that can be removed is `EIN` as it is an identifier for the applicant organization and has no impact on the behavior of the model.
+
 - Compiling, Training, and Evaluating the Model
 
-    - How many neurons, layers, and activation functions did you select for your neural network model, and why?
-    - Were you able to achieve the target model performance?
-    - What steps did you take in your attempts to increase model performance?
-3. **Summary**: Summarize the overall results of the deep learning model. Include a recommendation for how a different model could solve this classification problem, and then explain your recommendation.
+    - How many neurons, layers, and activation functions did you select for your neural network model, and why? **ANSWER** In the Optimized version of the model, I used 3 hidden layers each with multiple neurons which increased the accuracy to 75%. The Initial model had only 2 layers. 
+
+    - Were you able to achieve the target model performance? **ANSWER** - Yes by optimizing the model, I was able to increase the accuracy from 73% to 75%.
+
+    - What steps did you take in your attempts to increase model performance? **ANSWER** The following steps were taken to optimize and increase the performance of the model:
+
+        - Instead of dropping both the `EIN` and `Name` columns, only the `EIN` column was dropped. .
+
+        - Added a 3rd Activation Layer to the model in the following order to boost the accuracy to > 75% :
+
+            - 1st Layer - `relu`
+            - 2nd Layer - `sigmoid`
+            - 3rd Layer - `sigmoid`
+
+3. **Summary**: 
+- Overall, by optimizing the model we are able to increase the accuracy to the required 75%.
 
 # Step 5: Copy Files Into Your Repository
 Now that you're finished with your analysis in Google Colab, you need to get your files into your repository for final submission.
@@ -116,4 +137,4 @@ Now that you're finished with your analysis in Google Colab, you need to get you
 
 2. Move them into your Deep Learning Challenge directory in your local repository.
 
-3. Push the added files to GitHub.
+3. Push the added files to GitHub
